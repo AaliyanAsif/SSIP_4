@@ -9,7 +9,10 @@ function App() {
   const operators = ["/", "*", "+", "-", "."];
 
   const updatePrevInput = (value) => {
-    if (operators.includes(value) && currentInput === "") {
+    if (
+      (operators.includes(value) && currentInput === "" && prevInput === "") ||
+      (operators.includes(value) && operators.includes(prevInput.slice(-1)))
+    ) {
       return;
     }
     setCurrentInput(currentInput + value);
@@ -24,14 +27,32 @@ function App() {
     setPrevInput("");
   };
 
+  const clear = () => {
+    setCurrentInput("");
+    setPrevInput("");
+  };
+
+  const del = () => {
+    setCurrentInput(currentInput.slice(0, -1));
+    if (currentInput === "") {
+      setPrevInput(prevInput.slice(0, -1));
+    }
+  };
+
   return (
     <div className="calculator-grid">
       <div className="output-screen">
         <div className="prev-input"> {prevInput} </div>
-        <div className="current-input">{currentInput || ""} </div>
+        <div className="current-input">
+          {prevInput === "" && currentInput === "" ? "0" : currentInput}
+        </div>
       </div>
-      <button className="span-two red">AC</button>
-      <button className="del">DEL</button>
+      <button className="span-two red" onClick={clear}>
+        AC
+      </button>
+      <button className="del" onClick={del}>
+        DEL
+      </button>
       <button onClick={() => updatePrevInput("/")}>÷</button>
       <button onClick={() => updatePrevInput("7")}>7</button>
       <button onClick={() => updatePrevInput("8")}>8</button>
