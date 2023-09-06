@@ -1,8 +1,8 @@
-# React + Vite
+# React Calculator
+This is a basic calculator built using react, the calculator can perform basic operations such as add subtract multiply and divide.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Use State hook is primarly used to handle the states. 
 
-Currently, two official plugins are available:
+The design uses CSS grid and Flexbox along with media queries for responsive design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
