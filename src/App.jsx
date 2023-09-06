@@ -9,10 +9,7 @@ function App() {
   const operators = ["/", "*", "+", "-", "."];
 
   const updatePrevInput = (value) => {
-    if (
-      (operators.includes(value) && currentInput === "") ||
-      (operators.includes(value) && operators.includes(currentInput.slice(-1)))
-    ) {
+    if (operators.includes(value) && currentInput === "") {
       return;
     }
     setCurrentInput(currentInput + value);
@@ -20,6 +17,11 @@ function App() {
       setPrevInput(prevInput + currentInput + value);
       setCurrentInput("");
     }
+  };
+
+  const evaluate = () => {
+    setCurrentInput(eval(prevInput + currentInput));
+    setPrevInput("");
   };
 
   return (
@@ -45,7 +47,9 @@ function App() {
       <button onClick={() => updatePrevInput("-")}>-</button>
       <button onClick={() => updatePrevInput("0")}>0</button>
       <button onClick={() => updatePrevInput(".")}>.</button>
-      <button className="orange span-two">=</button>
+      <button className="orange span-two" onClick={evaluate}>
+        =
+      </button>
     </div>
   );
 }
