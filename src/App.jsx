@@ -13,12 +13,13 @@ function App() {
       (operators.includes(value) && currentInput === "" && prevInput === "") ||
       (operators.includes(value) &&
         operators.includes(prevInput.slice(-1)) &&
-        currentInput === "")
+        currentInput === "" &&
+        value != ".")
     ) {
       return;
     }
     setCurrentInput(currentInput + value);
-    if (operators.includes(value)) {
+    if (operators.includes(value) && value != ".") {
       setPrevInput(prevInput + currentInput + value);
       setCurrentInput("");
     }
