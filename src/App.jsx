@@ -60,7 +60,7 @@ function App() {
       <button onClick={() => updatePrevInput("7")}>7</button>
       <button onClick={() => updatePrevInput("8")}>8</button>
       <button onClick={() => updatePrevInput("9")}>9</button>
-      <button onClick={() => updatePrevInput("*")}>*</button>
+      <button onClick={() => updatePrevInput("*")}>x</button>
       <button onClick={() => updatePrevInput("4")}>4</button>
       <button onClick={() => updatePrevInput("5")}>5</button>
       <button onClick={() => updatePrevInput("6")}>6</button>
