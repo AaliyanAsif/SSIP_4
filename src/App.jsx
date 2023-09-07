@@ -11,7 +11,9 @@ function App() {
   const updatePrevInput = (value) => {
     if (
       (operators.includes(value) && currentInput === "" && prevInput === "") ||
-      (operators.includes(value) && operators.includes(prevInput.slice(-1)))
+      (operators.includes(value) &&
+        operators.includes(prevInput.slice(-1)) &&
+        currentInput === "")
     ) {
       return;
     }
